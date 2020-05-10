@@ -1,0 +1,42 @@
+
+   
+<!--לסדר למצא תמונה מ ינדקס או דף הבית-->
+<div class="nav-fixed" style="background-image: url( {{ page.url-img }} );">
+    {% if page.layout == "home" %}
+        <div class="box-header-home">
+
+            <div class="wrapper">
+                <div class="titles">
+                    <h1 class="page-heading-home">{{ page.head-title }}</h1>
+                    <h3 class="sec-heading">{{ page.sec-title }}</h3>
+                    <div class="btn-classes">
+                        {% for class in site.data.link-classes %}
+                            <a href="{{ class.url }}">
+                                <h3>
+                                    {{ class.name }}
+                                </h3>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div> 
+    {% elsif page.layout == "page" %}
+        <div class="box-header-page">
+            <div class="titles">
+                <h2 class="page-heading">{{ page.title | escape }}</h2>
+<!--                <h3 class="sec-heading">{{ page.sec-title }}</h3>-->
+            </div>
+
+        </div>
+    {% else page.layout == "post" %}
+    
+        <div class="box-header-post">
+            <h2 class="page-heading">{{ page.head-title }}</h2>
+<!--            <h3 class="sec-heading">{{ page.sec-title }}</h3>-->
+        </div>
+        
+   {% endif %}
+</div>
